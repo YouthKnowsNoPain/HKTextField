@@ -45,7 +45,7 @@ class HKTextField: UITextField,UITextFieldDelegate {
         super.init(coder: aDecoder)
     }
     
-    func textFieldMaxLenthDidChange(textField:UITextField) {
+    @objc fileprivate func textFieldMaxLenthDidChange(textField:UITextField) {
         guard let toBeString = textField.text else {
             return
         }
@@ -65,7 +65,7 @@ class HKTextField: UITextField,UITextFieldDelegate {
                 }
             } else {
                 
-                if toBeString.characters.count != 0 && toBeString.length > textMaxLength {
+                if toBeString.characters.count != 0 && toBeString.characters.count > textMaxLength {
                     textField.text = (toBeString as NSString).substring(to: textMaxLength)
                 }
             
